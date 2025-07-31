@@ -11,7 +11,7 @@ async function start() {
   container.style.position = 'relative'
   document.body.append(container)
   const labeledFaceDescriptors = await loadLabeledImages()
-  const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.5)
+  const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.6)
   let image
   let canvas
   document.body.append('Loaded')
@@ -41,10 +41,9 @@ function loadLabeledImages() {
     labels.map(async label => {
       const descriptions = []
       for (let i = 1; i <= 5; i++) {
+        // const img = await faceapi.fetchImage(`https://raw.githubusercontent.com/tuba638/Face-Recognition/refs/heads/main/labelled_images/Harry%20Potter/${i}.jpg`)
 
-        const img = await faceapi.fetchImage(`https://raw.githubusercontent.com/tuba638/Face-Recognition/refs/heads/main/labelled_images/${encodeURIComponent(label)}/${i}.jpg`)
-
-        // const img = await faceapi.fetchImage(`https://raw.githubusercontent.com/tuba638/Face-Recognition/refs/heads/main/labelled_images/Hermione%20Granger/5.png`)
+        const img = await faceapi.fetchImage(`https://raw.githubusercontent.com/tuba638/Face-Recognition/main/labelled_images/${encodeURIComponent(label)}/${i}.jpg`)
 
         const detections = await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor()
         descriptions.push(detections.descriptor)
@@ -54,7 +53,3 @@ function loadLabeledImages() {
     })
   )
 }
-
-
-
-

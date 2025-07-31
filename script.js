@@ -40,7 +40,7 @@ function loadLabeledImages() {
   return Promise.all(
     labels.map(async label => {
       const descriptions = []
-      for (let i = 1; i <= 2; i++) {
+      for (let i = 1; i <= 5; i++) {
 
         const img = await faceapi.fetchImage(`https://raw.githubusercontent.com/tuba638/Face-Recognition/refs/heads/main/labelled_images/Harry%20Potter/1.jpg`)
 

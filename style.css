@@ -7,10 +7,44 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: #F0FFF0;
+}
+
+#heading{
+    font-family:'Courier New', Courier, monospace;
+    color: black;
 }
 
 canvas{
     position: absolute;
     top: 0;
     left: 0;
+}
+
+#present{
+    background-color: chartreuse;
+}
+
+#absent{
+    background-color: chocolate;
+}
+
+#present, #absent{
+    width: 200px;
+    height: 200px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0; /* optional, for tighter left margin */
+}
+
+#present ul li::before {
+  content: "★ "; 
+  margin-right: 6px;
+}
+
+#absent ul li::before {
+  content: "❌"; 
+  margin-right: 6px;
 }

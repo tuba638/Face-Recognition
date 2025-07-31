@@ -42,7 +42,7 @@ function loadLabeledImages() {
       const descriptions = []
       for (let i = 1; i <= 5; i++) {
 
-        const img = await faceapi.fetchImage(`https://raw.githubusercontent.com/tuba638/Face-Recognition/refs/heads/main/labelled_images/${label}/${i}.jpg`)
+        const img = await faceapi.fetchImage(`https://raw.githubusercontent.com/tuba638/Face-Recognition/refs/heads/main/labelled_images/${encodeURIComponent(label)}/${i}.jpg`)
 
         const detections = await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor()
         descriptions.push(detections.descriptor)
